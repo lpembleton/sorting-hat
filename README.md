@@ -47,11 +47,27 @@ nextflow run main.nf --input samplesheet.csv --outdir <OUTDIR> -profile local
 
 ## Pipeline Output
 
-This pipeline out demultplexed fastq files. fastq files following quality and adapter trimming are not retained as most other pipeline included this process in their initial steps. Fastp and FastQC processing in only included to generate sequence quality reports to help users determine the appropriate next steps.
+This pipeline outputs demultplexed fastq files. fastq files following quality and adapter trimming are not retained as most other pipeline included this process in their initial steps. Fastp and FastQC processing in only included to generate sequence quality reports to help users determine the appropriate next steps.
 
 ## Credits
 
-sorting-hat (the nf pipeline, not the harry potter hat) was originally written by LWPembleton.
+sorting-hat (the nf pipeline, not the harry potter hat) was originally written by [`LWPembleton`](https://github.com:lpembleton).
+
+A lot of inspiration and structure was taken from the Nextflow documentation, the fantastic nf-core community and modules.
+
+> **Nextflow enables reproducible computational workflows.**
+> 
+> Paolo Di Tommaso, Maria Chatzou, Evan Floden, Pablo Prieto Barja, Emilio Palumbo & Cedric Notredame.
+> 
+> P. Di Tommaso, et al. Nextflow enables reproducible computational workflows. Nature Biotechnology 35, 316–319 (2017) doi:10.1038/nbt.3820
+
+> **The nf-core framework for community-curated bioinformatics pipelines.**
+>
+> Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
+>
+> _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
+
+
 
 ## Citations
 
