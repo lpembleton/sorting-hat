@@ -11,7 +11,7 @@ if (params.input) { csv_file = file(params.input) } else { exit 1, 'Input keyfil
 
 log.info """\
     ======================================================================
-    S O R T   H A T
+    S O R T I N G   H A T
     F A S T Q C   -   D E M U L T I P L E X I N G   P I P E L I N E
     ======================================================================
     Input keyfile: ${params.input}
@@ -77,14 +77,15 @@ workflow GBS_DEMULTIPLEX {
 
     
     // Read quality and adapter trimming
-    FASTP(demulti_reads)
+    //FASTP(demulti_reads)
     // Gather used softwares versions and reports
-    versions = versions.mix(FASTP.out.versions)
-    reports = reports.mix(FASTP.out.json.collect{ meta, json -> json })
-    reports = reports.mix(FASTP.out.html.collect{ meta, html -> html })
+    //versions = versions.mix(FASTP.out.versions)
+    //reports = reports.mix(FASTP.out.json.collect{ meta, json -> json })
+    //reports = reports.mix(FASTP.out.html.collect{ meta, html -> html })
 
     // QC on trimmed reads
-    FASTQC(FASTP.out.reads)
+    //FASTQC(FASTP.out.reads)
+    FASTQC(demulti_reads)
     // Gather used softwares versions and reports
     versions = versions.mix(FASTQC.out.versions)
     reports = reports.mix(FASTQC.out.zip.collect{ meta, logs -> logs })
