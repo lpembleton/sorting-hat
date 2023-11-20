@@ -32,6 +32,7 @@ log.info """\
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 include { CUTADAPT_DEMULTIPLEX } from '../modules/local/cutadapt_demultiplex'
+include { CUTADAPT_TRIMMING } from '../modules/local/cutadapt_trimming'
 include { AWK_PREPAREKEYFILE } from '../modules/local/awk_preparekeyfile'
 include { FASTP } from '../modules/local/fastp'
 include { FASTQC } from '../modules/local/fastqc'
@@ -51,7 +52,13 @@ workflow GBS_DEMULTIPLEX {
 
     input_sample = extract_keyfile(file(csv_file))
     AWK_PREPAREKEYFILE(input_sample)
-    CUTADAPT_DEMULTIPLEX(AWK_PREPAREKEYFILE.out.fa_samplesheet)
+
+    CUTADAPT_TRIMMING(AWK_PREPAREKEYFILE.out.fa_samplesheet)
+    versions = versions.mix(CUTADAPT_TRIMMING.out.versions)
+    reports = reports.mix(CUTADAPT_TRIMMING.out.log.collect{ meta, log -> log })
+
+    //CUTADAPT_DEMULTIPLEX(AWK_PREPAREKEYFILE.out.fa_samplesheet)
+    CUTADAPT_DEMULTIPLEX(CUTADAPT_TRIMMING.out.fastq)
     // Gather used softwares versions and reports
     versions = versions.mix(CUTADAPT_DEMULTIPLEX.out.versions)
     reports = reports.mix(CUTADAPT_DEMULTIPLEX.out.log.collect{ meta, log -> log })
