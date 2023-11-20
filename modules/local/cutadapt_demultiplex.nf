@@ -22,6 +22,7 @@ process CUTADAPT_DEMULTIPLEX {
     """
 
     cutadapt \\
+        -j 2 \\
         -g file:${key} \\
         -o {name}_${runid}_${lane}.fastq.gz \\
         ${fastq} \\
