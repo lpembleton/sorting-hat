@@ -14,10 +14,11 @@
 
 For Restriction Enzyme GBS Demulitplexing:
 1. Prepare keyfiles for cutadapt input ([awk](https://www.gnu.org/software/gawk/manual/gawk.html))
-2. Demultiplex fastq file using provide barcode keys ([Cutadapt](https://cutadapt.readthedocs.io/en/stable/))
-3. Read quality and adapter trimming ([fastp](https://github.com/OpenGene/fastp))
-4. Read QC ([FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
-5. Reporting ([MultiQC](https://multiqc.info/))
+2. Timming fastq file to remove common adapter before looking for internal barcodes in step 3. ([Cutadapt](https://cutadapt.readthedocs.io/en/stable/))
+3. Demultiplex fastq file using provide barcode keys ([Cutadapt](https://cutadapt.readthedocs.io/en/stable/))
+4. Read quality and adapter trimming ([fastp](https://github.com/OpenGene/fastp))
+5. Read QC ([FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
+6. Reporting ([MultiQC](https://multiqc.info/))
 
 ## Input Requirements:
 The pipeline expects a CSV samplesheet as input, which should contain the run id, the lane number, the path to the key file and the path to the fastq file. It should like something similar to:
