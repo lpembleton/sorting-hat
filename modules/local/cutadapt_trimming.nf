@@ -19,7 +19,7 @@ process CUTADAPT_TRIMMING {
     cutadapt \\
         -j 2 \\
         -a common_adapter=AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG \\
-        --minimum-length 40
+        --minimum-length 40 \\
         -o trimmed.${fastq} \\
         ${fastq} \\
         > ${runid}_${lane}_trimming.cutadapt.log
