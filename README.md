@@ -7,7 +7,10 @@
 
 ## Introduction
 
-**sorting-hat** is a bioinformatics pipeline that demultiplexes restriction enzyme genotyping-by-sequencing data, performs read trimming and computes standard QA/QC stats.
+**sorting-hat** is a bioinformatics pipeline that demultiplexes restriction enzyme genotyping-by-sequencing data.
+The sequencing data is assumed to single end and have a single internal barcode as in the GBS protocol (and derivatives of) described by [Elshire et al. 2011](https://doi.org/10.1371/journal.pone.0019379).
+
+The pipeline also computes standard QA/QC stats.
 
 
 ## Pipeline Summary:
